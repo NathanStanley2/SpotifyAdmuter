@@ -7,9 +7,8 @@ import time
 devices = AudioUtilities.GetSpeakers()
 interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
 volume = cast(interface, POINTER(IAudioEndpointVolume))
-#DO NOT LAUNCH THIS FILE TO STARE
+#DO NOT LAUNCH THIS FILE TO START
 
-#x = input("Enter a letter to mute the thing ")
 
 def volume_muter():
     #if x == ("a"):
