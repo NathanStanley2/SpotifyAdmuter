@@ -11,11 +11,18 @@ volume = cast(interface, POINTER(IAudioEndpointVolume))
 
 
 def volume_muter():
-    #if x == ("a"):
-    volume.SetMasterVolumeLevel(-65.25, None) # range is -65.25 to 0, -65 is lowest, 0 is max volume
+    sessions = AudioUtilities.GetAllSessions()
+    for session in sessions:
+        if session.Process and session.Process.name() == "chrome.exe":
+            x = session.SimpleAudioVolume
+            x.SetMute(True, None)
 
 def volume_unmuter():
-    volume.SetMasterVolumeLevel(-5, None) #unmute and set volume to 72
+    sessions = AudioUtilities.GetAllSessions()
+    for session in sessions:
+        if session.Process and session.Process.name() == "chrome.exe":
+            x = session.SimpleAudioVolume
+            x.SetMute(False, None)
     #else:
        # print("not muted")
 
